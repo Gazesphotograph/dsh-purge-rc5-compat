@@ -57,7 +57,7 @@ The author's personal channel: [t.me/LLM_PoJia](https://t.me/LLM_PoJia). Notes a
 
 ## What this is
 
-**dsh-purge** is a cybersecurity red-team plugin for the official [DeepSeek Harness](https://www.deepseek.com/harness/) already installed on your machine. **1.1.81** targets **DSH 0.2.1-rc.2** (0.2.0 still works). **DSH 0.2.1-rc.3 and newer RCs are not supported.** Official **Web** (`dsh web`) and the official **desktop EXE** are both supported. Install and Apply them separately.
+**dsh-purge** is a cybersecurity red-team plugin for the official [DeepSeek Harness](https://www.deepseek.com/harness/) already installed on your machine. Upstream **1.1.90** includes patterns for **DSH 0.2.1-rc.2 and rc.5**. This local **1.1.90+rc5.1** build fixes repeated desktop diagnostic insertion; see [validation scope](docs/rc5-compatibility.md). Official **Web** (`dsh web`) and the official **desktop EXE** use separate installations and Apply actions.
 
 Harness does more than forward a prompt. It rewrites prompts, approval gates, sandbox policy, and session migration at runtime. Asking only “will the model answer” treats a host-layer block as a model refusal. This plugin separates those two layers on your own install, for controlled evaluation and for seeing which default policy is too tight.
 
@@ -131,12 +131,12 @@ This repo is [Apache License 2.0](./LICENSE). Forks and redistributions must kee
 
 ## Supported hosts
 
-**1.1.81 targets DSH 0.2.1-rc.2.** 0.2.0 still works. Do not apply it to 0.1.x.
+**This local build targets DSH 0.2.1-rc.5.** rc.2 patterns remain included. Do not apply it to 0.1.x.
 
 - **dsh 0.2.1-rc.2** (official desktop / official `dsh web`): use **1.1.81**. Fixes `{{cwd}}` / `[cwd]` crash, patch #40 match, dropped `toolFilter`, host `dsh-tools` resolve, hostFs fd, desktop helper self-kill, `file:` archive update, Ctrl+Enter steer.
 - **dsh 0.2.0-rc.2**: use **1.1.40** or newer; this line also installs.
 - **dsh 0.1.7** (incl. rc.1 / rc.2): use **1.1.39** or older — pick the tag on [Releases](https://github.com/YuJunZhiXue/dsh-purge/releases).
-- **dsh 0.2.1-rc.3 / rc.4 and newer are not supported.** Unmatched patches stay pending or skipped; nothing is rewritten blindly. Stay on **0.2.1-rc.2**.
+- **dsh 0.2.1-rc.5**: use this local **1.1.90+rc5.1** package. Patch application, repeatability, syntax and restoration were checked on an isolated copy of Windows desktop files. Desktop UI and model responses remain untested. Other RC versions are not covered by this local validation.
 
 Unmatched patches stay pending or skipped; nothing is rewritten blindly.
 
